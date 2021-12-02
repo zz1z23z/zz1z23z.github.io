@@ -1,0 +1,64 @@
+.outer{
+    width: 240px;
+    margin: 100px auto;
+    /* 设置阴影 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+/* .img-wrapper{
+    border: 1px red solid;
+} */
+
+/* 设置图片 */
+.img-wrapper img{
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.info{
+    padding: 0 18px;
+    color: #acaaaa;
+    font-size: 14px;
+}
+
+/* 设置标题 */
+.info .title{
+    color: #717171;
+    font-size: 18px;
+    margin: 13px 0 15px 0;
+}
+
+
+.info .category i{
+    margin-left: 4px;
+    margin-right: 7px;
+}
+
+/* 设置简介的样式 */
+.info .intro{
+    margin: 18px 4px;
+    line-height: 20px;
+}
+
+/* 设置下边的内容 */
+.star-wrapper{
+    height: 46px;
+    line-height: 46px;
+    border-top: 1px solid #e9e9e9;
+    color: #ddd;
+    padding: 0 16px;
+}
+
+/* 设置星星的样式 */
+.star-wrapper .star{
+    float: left;
+    
+}
+
+.star-wrapper .light{
+    color: #b9cb41;
+}
+
+.star-wrapper .weibo{
+    float: right;
+}
