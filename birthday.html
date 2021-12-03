@@ -5,49 +5,58 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="./css/birthday.css">
+  <script type="text/javascript" src="./js/birthday.js"></script>
   <title>Document</title>
 </head>
 
 <body>
   <section>
-    <div class="box">
-      <div onclick="test()" class="circle">
-        <h2>Happy<br>Christmas</h2>
+    <div class="box" href="#open-modal">
+      <a href="#open-modal">
+        <div class="circle">
+          <h2>Happy<br>Christmas</h2>
       </div>
+      </a>
     </div>
   </section>
-  <script>
-    function bubbles() {
-      var count = 200;
-      var section = document.querySelector('section');
-      var i = 0;
-      while (i < count) {
-        var bubble = document.createElement('i');
-        var x = Math.floor(Math.random() * window.innerWidth);
-        var y = Math.floor(Math.random() * window.innerHeight);
-
-        var size = Math.random() * 10;
-        bubble.style.left = x + 'px';
-        bubble.style.top = y + 'px';
-        bubble.style.width = 1 + size + 'px';
-        bubble.style.height = 1 + size + 'px';
-
-        bubble.style.animationDuration = 5 + size + 's';
-        bubble.style.animationDelay = -size + 's';
-
-        section.appendChild(bubble);
-        i++;
-      }
-    }
-    bubbles();
-    function test(){
-      alert("我被点击了");
-      window.location.href="card.html";
-    }
-    
-  </script>
+  <div id="open-modal" class="modal-window">
+    <div>
+      <a href="#" title="Close" class="modal-close">Close</a>
+      <h1>hellow</h1>
+      <div>你是谁啊</div>
+      <input id="name" type="text">
+      <div onclick="link()"><small>link start</small></div>
+    </div>
+  </div>
 </body>
+<script>
+  function bubbles() {
+    var count = 200;
+    var section = document.querySelector('section');
+    var i = 0;
+    while (i < count) {
+      var bubble = document.createElement('i');
+      var x = Math.floor(Math.random() * window.innerWidth);
+      var y = Math.floor(Math.random() * window.innerHeight);
+
+      var size = Math.random() * 10;
+      bubble.style.left = x + 'px';
+      bubble.style.top = y + 'px';
+      bubble.style.width = 1 + size + 'px';
+      bubble.style.height = 1 + size + 'px';
+
+      bubble.style.animationDuration = 5 + size + 's';
+      bubble.style.animationDelay = -size + 's';
+
+      section.appendChild(bubble);
+      i++;
+    }
+  }
+  bubbles();
+
+</script>
 
 </html>
