@@ -3,7 +3,7 @@
     padding: 0px;
 }
 .outer-list{
-    width: 1300px;
+    width: 1600px;
     display: flex;
     align-items: center;
     overflow: auto;
@@ -113,4 +113,13 @@ a {
 
 .star-wrapper .weibo{
     float: right;
+}
+
+.return {
+    position: absolute;
+    left:50vw;
+    right: auto;
+    top: auto;
+    bottom: auto;
+
 }
