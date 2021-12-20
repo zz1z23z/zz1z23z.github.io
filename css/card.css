@@ -3,7 +3,7 @@
     padding: 0px;
 }
 .outer-list{
-    width: 1600px;
+    width: 100vw;
     display: flex;
     align-items: center;
     overflow: auto;
@@ -12,10 +12,12 @@ a {
     color: #fababa;
 }
 .outer{
-    width: 100vw;
+    width: 180px;
+    height: 320px;
     margin: 100px 20px;
     /* 设置阴影 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, .3);   
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3); 
+    flex: none;
 }
 
 /* .img-wrapper{
@@ -115,11 +117,17 @@ a {
     float: right;
 }
 
-.return {
-    position: absolute;
-    left:50vw;
-    right: auto;
-    top: auto;
-    bottom: auto;
+.last {
+    width: 180px;
+    height: 320px;
+    margin: 100px 20px;
+    /* 设置阴影 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3); 
+    flex: none;
+}
 
+.return {
+    position: relative;
+    left:47vw;
+    top: 40px;
 }

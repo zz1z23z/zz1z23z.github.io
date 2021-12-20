@@ -7,8 +7,8 @@
     font-family: 'Satisfy', cursive;
 }
 :root {
-    /* --color:#ff2a2a; */
-    --color:#000;
+    --color:#ff2a2a;
+    /* --color:#000; */
 }
 body {
     overflow: hidden;
