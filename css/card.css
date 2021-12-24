@@ -140,7 +140,7 @@ a {
 }
 .first,.msg {
     backface-visibility: hidden;
-    transition: transform 2s ;
+    transition: all 2s ;
     transform-style: preserve-3d;
 
 }
