@@ -1,19 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./fa/css/all.css">
     <link rel="stylesheet" href="./css/card.css">
+    <script src="./js/card.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/waifu.css" />
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 
 <body>
     <div class="outer-list">
+        <canvas id="canvas"></canvas>
+
         <!-- 创建一个外层容器 -->
+        <div id="first" class="outer first" onclick="showMsg()">
+            <!-- 创建图片容器 -->
+            <div class="img-wrapper">
+                <!-- 设置图片 -->
+                <img src="./img/9.jpg" alt="">
+            </div>
+            <!-- 创建内容区容器 -->
+            <div class="info">
+                <h2 class="title">
+                    圣诞快乐
+                </h2>
+                <h3 class="category">
+                    <i class="fas fa-map-marker-alt"></i>节日
+                </h3>
+                <p class="intro">
+                      哇，下雪了，还有圣诞树，那祝你圣诞快乐，开心每一天~
+                </p>
+            </div>
+            <!-- 创建评分的容器 -->
+            <div class="star-wrapper">
+                <!-- 创建星星 -->
+                <ul class="star">
+                    <li class="fas fa-star light"></li>
+                    <li class="fas fa-star light"></li>
+                    <li class="fas fa-star light"></li>
+                    <li class="fas fa-star light"></li>
+                    <li class="fas fa-star light"></li>
+                </ul>
+
+                <!-- 创建 -->
+                <ul class="weibo">
+                    <a href="https://weibo.com/u/1838722360">
+                        <li class="fab fa-weibo"></li>
+                    </a>
+                </ul>
+            </div>
+        </div>
         <div class="outer">
             <!-- 创建图片容器 -->
             <div class="img-wrapper">
@@ -317,7 +360,7 @@
                 </ul>
             </div>
         </div>
-           
+
         <!-- <div class="outer">
             <div class="img-wrapper">
                 <img src="./img/5.jpg" alt="">
@@ -334,7 +377,9 @@
             <!-- 创建图片容器 -->
             <div class="img-wrapper">
                 <!-- 设置图片 -->
-                
+                <img class="anime" src="./img/anime/1.gif" alt="">
+                <img class="anime" src="./img/anime/3.gif" alt="">
+
             </div>
             <!-- 创建内容区容器 -->
             <div class="info">
@@ -346,17 +391,136 @@
                 <!-- <p class="intro"> -->
                 </p>
             </div>
-            
-            </div>
+
         </div>
+        <div id="msg" class="msg" onclick="hiddenMsg()">
+            <div class="info">
+                <p class="intro">
+                    好想知道你第一次看到这个网页的心情啊，
+                    不知道会不会有些开心和感动呢，
+                    也不知道有没有偶尔再看看呢，
+                    这是我做的第一个网页，虽然很菜，但也是很用心了！
+                    如果你喜欢，我会继续更新下去的~
+                    然后不仅圣诞快乐哟，还要每天都快乐~
+                    考试必过！
+                    最后还是想说一句。。我喜欢你啊！以上
+                </p>
+            </div>
+
+        </div>
+    </div>
+    
     </div>
     <div class="return">
         <a href="https://zz1z23z.github.io/birthday.html">
             返回首页
         </a>
     </div>
+    <div>
+        <Iframe id="christmasTree" src="./tree.html" width="200px" height="400px" scrolling="no" frameborder="0">
+        </iframe>
+    </div>
 
 
+    <div class="waifu">
+        <div class="waifu-tips"></div>
+        <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+        <div class="waifu-tool">
+            <!-- <span class="fui-home"></span> -->
+            <span class="fui-chat"></span>
+            <span class="fui-eye"></span>
+            <span class="fui-user"></span>
+            <span class="fui-photo"></span>
+            <span class="fui-info-circle"></span>
+            <span class="fui-cross"></span>
+        </div>
+    </div>
+    <script src="assets/waifu-tips.js"></script>
+    <script src="assets/live2d.js"></script>
+    <script type="text/javascript">initModel("assets/")</script>
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        /* 定义x为窗口宽度，y为窗口高度 */
+        var x = 0, y = 0;
+        /* 定义数组，是为了存储每一片雪与雪花的信息 */
+        var arr = [];
+        /* 假设有600片雪 */
+        var num = 600;
+
+        /* 绑定窗口大小发生改变事件，让canvas随时铺满浏览器可视区 */
+        window.onresize = resizeCanvas;
+        function resizeCanvas() {
+            x = canvas.width = window.innerWidth;
+            y = canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+
+        for (let i = 0; i < num; i++) {
+            arr.push({
+                x: x * Math.random(),
+                y: y * Math.random(),
+                r: Math.random() * 6,
+                color: `rgba(255,255,255,${Math.random()})`
+            })
+        }
+        /* 创建image元素 */
+        var img = new Image();
+        /* 设置雪花的地址，只有雪花是用图片表示 */
+        img.src = "img/snow.png";
+        function draw() {
+            /* 遍历数组 */
+            for (let i = 0; i < num; i++) {
+                var yuan = arr[i];
+                /* 创建路径 */
+                ctx.beginPath();
+                /* 给雪设置颜色 */
+                ctx.fillStyle = yuan.color;
+                /* 绘制雪 */
+                ctx.arc(yuan.x, yuan.y, yuan.r, 0, 2 * 3.14, false);
+                /* 如果i%30==0才绘制雪花，雪花不用太多 */
+                if (i % 30 == 0) {
+                    /* 绘制雪花图片 */
+                    ctx.drawImage(img, yuan.x, yuan.y, yuan.r * 10, yuan.r * 10);
+                }
+                /* 填充路径 */
+                ctx.fill();
+            }
+        }
+
+        function updated() {
+            for (let i = 0; i < num; i++) {
+                var yuan = arr[i];
+                /* x轴位置+0.1，变化小点 */
+                yuan.x = yuan.x + 0.1;
+                /* y轴位置+自身半径一半，这样越大的学走越快 */
+                yuan.y = yuan.y + yuan.r / 2;
+                /* 如果学已经走出窗口 */
+                if (yuan.y > y) {
+                    /* 重新给雪数组赋值 */
+                    arr[i] = {
+                        x: x * Math.random(),
+                        y: -10,
+                        r: Math.random() * 5,
+                        color: `rgba(255,255,255,${Math.random()})`
+                    }
+                }
+            }
+
+        }
+        setInterval(function () {
+            /* 清屏 */
+            ctx.clearRect(0, 0, x, y);
+            /* 绘制 */
+            draw();
+            /* 更新 */
+            updated();
+        }, 10)
+
+
+
+    </script>
 </body>
 
 </html>

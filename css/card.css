@@ -1,12 +1,24 @@
 *{
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh; 
+    /* background-image: url(../img/anime/7.jpg); */
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    background-color: rgb(245, 231, 231);
+    perspective: 800px;
+
+
 }
 .outer-list{
     width: 100vw;
     display: flex;
     align-items: center;
     overflow: auto;
+    position: relative;
 }
 a {
     color: #fababa;
@@ -15,6 +27,7 @@ a {
     width: 180px;
     height: 320px;
     margin: 100px 20px;
+    background-color: #fff;
     /* 设置阴影 */
     box-shadow: 0 0 10px rgba(0, 0, 0, .3); 
     flex: none;
@@ -125,9 +138,42 @@ a {
     box-shadow: 0 0 10px rgba(0, 0, 0, .3); 
     flex: none;
 }
+.first,.msg {
+    backface-visibility: hidden;
+    transition: transform 2s ;
+    transform-style: preserve-3d;
+
+}
+.msg {
+    width: 180px;
+    height: 320px;
+    margin: 100px 20px;
+    /* 设置阴影 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3); 
+    background-color: #fff;
+    /* flex: none; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+}
 
 .return {
-    position: relative;
-    left:47vw;
-    top: 40px;
+    position: fixed;
+    left: 10vw;
+    top: 90vh;
+}
+iframe {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+img.anime {
+    margin: 10px;
+    width: 90%;
+}
+#canvas {
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
 }
