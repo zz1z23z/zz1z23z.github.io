@@ -35,7 +35,7 @@
                     <i class="fas fa-map-marker-alt"></i>节日
                 </h3>
                 <p class="intro">
-                      哇，下雪了，还有圣诞树，那祝你圣诞快乐，开心每一天~
+                    哇，下雪了，还有圣诞树，那祝你圣诞快乐，开心每一天~
                 </p>
             </div>
             <!-- 创建评分的容器 -->
@@ -409,7 +409,7 @@
 
         </div>
     </div>
-    
+
     </div>
     <div class="return">
         <a href="https://zz1z23z.github.io/birthday.html">
@@ -519,7 +519,14 @@
         }, 10)
 
 
-
+        var browserRule = /^.*((iPhone)|(iPad)|(Safari))+.*$/;
+        if (browserRule.test(navigator.userAgent)) {
+            window.onpageshow = function (event) {
+                if (event.persisted) {
+                    window.location.reload()
+                }
+            };
+        }
     </script>
 </body>
 
