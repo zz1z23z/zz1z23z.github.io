@@ -156,6 +156,7 @@ a {
     top: 0;
     left: 0;
     transform: rotateY(180deg);
+    z-index: -1;
 }
 
 .return {
@@ -174,6 +175,6 @@ img.anime {
 }
 #canvas {
     position: absolute;
-    z-index: -1;
+    z-index: -10;
     width: 100vw;
 }
