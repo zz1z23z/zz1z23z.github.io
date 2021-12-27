@@ -16,3 +16,12 @@ function hiddenMsg(){
     first.style.zIndex="1"
     msg.style.zIndex="-1"
 }
+var browserRule = /^.*((iPhone)|(iPad)|(Safari))+.*$/;
+if (browserRule.test(navigator.userAgent)) {
+    window.onpageshow = function (event) {
+        if (event.persisted) {
+            window.location.reload()
+        }
+    };
+}
+
