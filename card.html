@@ -395,7 +395,7 @@
         </div>
         <div id="msg" class="msg" onclick="hiddenMsg()">
             <div class="info">
-                <p class="intro">
+                <!-- <p class="intro">
                     好想知道你第一次看到这个网页的心情啊，
                     不知道会不会有些开心和感动呢，
                     也不知道有没有偶尔再看看呢，
@@ -404,6 +404,9 @@
                     然后不仅圣诞快乐哟，还要每天都快乐~
                     考试必过！
                     最后还是想说一句。。我喜欢你啊！以上
+                </p> -->
+                <p class="intro">
+                    不知道有没有人看的网页
                 </p>
             </div>
 
@@ -507,7 +510,6 @@
                     }
                 }
             }
-
         }
         setInterval(function () {
             /* 清屏 */
@@ -518,15 +520,6 @@
             updated();
         }, 10)
 
-
-        var browserRule = /^.*((iPhone)|(iPad)|(Safari))+.*$/;
-        if (browserRule.test(navigator.userAgent)) {
-            window.onpageshow = function (event) {
-                if (event.persisted) {
-                    window.location.reload()
-                }
-            };
-        }
     </script>
 </body>
 
